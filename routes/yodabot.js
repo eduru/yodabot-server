@@ -29,7 +29,6 @@ router.post("/conversation", async (req, res) => {
       {},
       config
     );
-    console.log(data.data);
     res.json(data.data);
   } catch (e) {
     console.log(e);
@@ -47,7 +46,7 @@ router.post("/conversation/message", async (req, res) => {
   try {
     const data = await axios.post(
       `${req.body.baseUrl}/v1/conversation/message`,
-      { message: "what time is it" },
+      { message: req.body.message },
       config
     );
     console.log(data.data);
